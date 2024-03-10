@@ -1,0 +1,40 @@
+.text-bienvenue{
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.button-connecter-vous{
+    width: 85%;
+    margin-left: 7%;
+    margin-top: -33%;
+    --background: #Be8400;
+}
+.creer-compte{
+    width: 85%;
+    margin-left: 7%;
+    margin-top: -6%;
+    --background: black;
+    color: white;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #Be8400;
+}
+.bysigning{
+    white-space: nowrap;
+    color: white;
+    margin-top: 50%;
+    margin-left: 7%;
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+.termsservice{
+    color: white;
+    margin-top: 18%;
+    margin-left: -52%;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
