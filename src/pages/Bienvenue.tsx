@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonContent, IonButton, IonRouterLink, IonImg, IonTitle, IonText } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Bienvenue.css';
+import '../styles/Bienvenue.css';
 
 const BienvenuePage: React.FC = () => {
   return (
