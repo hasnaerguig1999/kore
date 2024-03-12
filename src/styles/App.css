@@ -1,5 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 .tab-button-selected {
     color: white !important; 
     --color-selected: white !important; 
   }
+
   
