@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { IonImg } from '@ionic/react';
+import { IonImg, IonIcon } from '@ionic/react';
 import '../styles/Layer.css';
+import { mic } from 'ionicons/icons';
+
 
 const Layer = () => {
 
@@ -87,8 +89,19 @@ const Layer = () => {
                   marginLeft: '-48px',
                   marginTop: '8px'
                 }} />
-                <p className="font-semibold" style={{ marginTop: '-10%', marginLeft: '16px' }}>Triplee Dollar</p>
-                <p className="text-sm text-gray-400" style={{ marginTop: '40px', marginLeft: '-96px' }}>RAP / ROCK / POP</p>
+                <p className="font-semibold" style={{ marginTop: '-10%', marginLeft: '16px' }}>Triplee Dollar<div className="flex items-center justify-center rounded-full w-10 h-10 border border-gray-200"
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    position: 'absolute',
+                    marginTop: '-21px',
+                    marginLeft: '107px',
+                    boxShadow: '0 0 10px #FFF',
+                  }}
+                >
+                  <IonIcon icon={mic} />
+                </div></p>
+                <p className="text-sm text-gray-400" style={{ marginTop: '37px', marginLeft: '-97px' }}>RAP / ROCK / POP</p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
