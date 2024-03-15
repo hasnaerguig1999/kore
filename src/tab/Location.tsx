@@ -51,8 +51,8 @@ const Location = () => {
                   backgroundImage: 'url("/assets/img/girl.jpg")',
                   backgroundSize: 'cover',
                   borderRadius: '50%',
-                  width: '77px',
-                  height: '77px',
+                  width: '60px',
+                  height: '60px',
                   marginLeft: '-35px',
                   marginTop: '8px'
                 }} />
@@ -131,7 +131,7 @@ const Location = () => {
         </div>
         <button className='bg-[#333] p-3 rounded-full'
           style={{
-            marginTop: '446px',
+            marginTop: '455px',
             marginLeft: '142px',
             width: '134px',
             borderRadius: '58px',
