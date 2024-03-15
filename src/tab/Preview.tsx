@@ -104,7 +104,7 @@ const Preview = () => {
                 }}
               >Kanya</p>
             </div>
-            <div className='flex justify-around my-4'>
+            <div className=''>
               <div className="">
                 <img src="assets/img/youtube.png" alt="youtube"
                   style={{
@@ -156,9 +156,16 @@ const Preview = () => {
 
             <button
               className={`flex-grow pb-2 mr-2 ${activeButton === 'Notifications' ? 'text-yellow-400' : 'text-white'}`}
+              style={{
+                paddingBottom: '6px'
+              }}
               onClick={() => setActiveButton('Notifications')}
             >
-              <div className={`border-b-2 mb-1 ${activeButton === 'Notifications' ? 'border-yellow-400' : 'border-white'}`}>
+              <div className={`border-b-2 mb-1 ${activeButton === 'Notifications' ? 'border-yellow-400' : 'border-white'}`}
+               style={{
+                paddingBottom: '6px'
+              }}
+              >
                 Notifications
               </div>
             </button>
@@ -166,12 +173,16 @@ const Preview = () => {
               className={`flex-grow pb-2 mx-2 ${activeButton === 'Agenda' ? 'text-yellow-400' : 'text-white'}`}
               onClick={() => setActiveButton('Agenda')}
             >
-              <div className={`border-b-2 mb-1 ${activeButton === 'Agenda' ? 'border-yellow-400' : 'border-white'}`}>
+              <div className={`border-b-2 mb-1 ${activeButton === 'Agenda' ? 'border-yellow-400' : 'border-white'}`}
+               style={{
+                paddingBottom: '6px'
+              }}
+              >
                 Agenda
               </div>
             </button>
           </div>
-          <div className="border-t border-gray-600">
+          <div className="">
             <ul className="divide-y divide-black">
               <li className="flex items-center py-3 space-x-2">
                 <span className="relative flex h-14 w-14  overflow-hidden rounded-full">
