@@ -110,8 +110,8 @@ const Preview = () => {
                   style={{
                     position: 'absolute',
                     width: '43px',
-                    marginLeft: '156px',
-                    marginTop: '-62px',
+                    marginLeft: '214px',
+                    marginTop: '14px',
                     zIndex: '1',
                   }}
                 />
@@ -120,8 +120,8 @@ const Preview = () => {
               <img src="assets/img/spotify.png" alt="spotify"
                 style={{
                   width: '39px',
-                  marginLeft: '95px',
-                  marginTop: '-59px',
+                  marginLeft: '273px',
+                  marginTop: '-45px',
                   height: '35px',
                 }}
               />
