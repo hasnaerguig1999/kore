@@ -1,11 +1,12 @@
-// Accueil.jsx
 import React from 'react';
+import'../styles/Accueil.css';
+import { IonContent } from '@ionic/react';
 
 const Accueil = () => {
   return (
-    <div>
-      <h1>Accueil</h1>
-    </div>
+    <IonContent className="">
+   <h1> Acceuill</h1>
+  </IonContent>
   );
 };
 

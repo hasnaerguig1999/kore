@@ -5,11 +5,13 @@ import { IonReactRouter } from '@ionic/react-router';
 import { pinOutline, layersOutline, chatboxOutline, copyOutline, personCircleOutline } from 'ionicons/icons';
 import Home from './pages/Home';
 import Bienvenue from './pages/Bienvenue';
+import Accueil from './pages/Accueil';
 import Profil from './tab/Profil';
 import Layer from './tab/Layer';
 import Preview from './tab/Preview';
 import Comment from './tab/Comment';
 import Location from './tab/Location';
+
 import './styles/App.css';
 setupIonicReact();
 
@@ -29,6 +31,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/home">
             <Home />
+          </Route>
+          <Route exact path="/Accueil">
+            <Accueil />
           </Route>
           <Route path="/app">
             <IonTabs>
