@@ -1,16 +1,22 @@
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
+import { IonButtons, IonButton, IonModal, IonHeader, IonContent, IonToolbar, IonTitle, IonPage, IonIcon } from '@ionic/react';
 import React, { useState } from 'react';
 import { mic, play } from 'ionicons/icons';
+import { Link } from 'react-router-dom';
+import Modal from 'react-modal';
 
 const Profil = () => {
   const [activeButton, setActiveButton] = useState('Posts');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+
+
   return (
     <>
       <div className="bg-black text-white min-h-screen">
         <div className="flex items-center pt-8 pl-4 pr-4">
           <span className="relative flex shrink-0 overflow-hidden rounded-full"
 
-            style={{ width: '90px', height: '90px', border: '4px solid #Be8400' }}
+            style={{ width: '90px', height: '90px', border: '4px solid #Be8400', top: '2px' }}
           >
             <img
               className="aspect-square large-image"
@@ -35,6 +41,7 @@ const Profil = () => {
             </div>
           </div>
           <svg
+            onClick={() => setModalIsOpen(true)}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -49,7 +56,415 @@ const Profil = () => {
             <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
             <circle cx="12" cy="12" r="3"></circle>
           </svg>
-        </div>
+          <Modal
+            style={{
+              overlay: {
+                backgroundColor: 'transparent',
+
+              },
+              content: {
+                border: '1px solid black',
+                backgroundColor: 'black',
+                position: 'absolute',
+                background: 'black',
+                marginLeft: '-40px',
+                width: '100%',
+                marginTop: '-8px',
+                marginBottom: '16px',
+              }
+            }}
+            isOpen={modalIsOpen}
+            onRequestClose={() => setModalIsOpen(false)}
+          >
+            <div className="bg-black text-white w-screen h-screen"
+              style={{
+                paddingTop: '4px',
+                marginLeft: '-22px',
+                marginTop: '-21px',
+                position: 'relative',
+              }}
+            >
+              <div className="flex items-center justify-between p-4 border-b border-gray-600">
+                <h2 className="text-lg font-bold"
+                  style={{
+                    textShadow: '0 0 7px #FFF',
+                    fontSize: '32px'
+                  }}
+                >PARAMÈTRES</h2>
+                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-gray-300"
+                  style={{
+                    position: 'absolute',
+                  }}
+                  onClick={() => setModalIsOpen(false)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    style={{
+                      width: '44px',
+                      height: '43px',
+                      marginLeft: '324px',
+                      marginTop: '-5px',
+                    }}
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+              <div className="p-4">
+                <div className="flex items-center bg-[#525252] text-gray-300 rounded-md p-2"
+                  style={{
+                    height: '38px',
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="w-5 h-5"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+                  <input
+                    className="flex h-10 px-3 py-2 text-sm bg-transparent ml-2 w-full" style={{ marginLeft: '-6px' }}
+                    placeholder="Rechercher"
+                    type="search"
+                  />
+                </div>
+              </div>
+              <div className="space-y-5 p-4">
+                <div className="space-y-5">
+                  <h3 className="text-bold font-semibold uppercase tracking-wide text-white"
+                    style={{ fontSize: '19px' }}
+                  >RÉGLAGES DU COMPTE</h3>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                      <span className="ml-2">INFORMATIONS PERSONNELLES</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
+                      <span className="ml-2">MOT DE PASSE ET SÉCURITÉ</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                        <line x1="2" x2="22" y1="10" y2="10"></line>
+                      </svg>
+                      <span className="ml-2" style={{whiteSpace:'nowrap'}}>MOYENS DE PAIEMENT</span>
+                    </div>
+                    <div className='p-4 border-b border-gray-600 w-full' style={{position: 'relative',top: '14px',left: '-85px',}}></div>
+
+                   
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div className="space-y-5">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-white" style={{ fontSize: '19px' }}>CONTENU ET</h3>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                      <span className="ml-2">FAVORIS</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <line x1="17" x2="22" y1="8" y2="13"></line>
+                        <line x1="22" x2="17" y1="8" y2="13"></line>
+                      </svg>
+                      <span className="ml-2">COMPTES BLOQUÉS</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                      </svg>
+                      <span className="ml-2">SIGNETS</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"></path>
+                      </svg>
+                      <span className="ml-2">MENTIONS ET COMPTES LIÉS</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div className="space-y-5">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-white" style={{ fontSize: '19px' }}>RÉGLAGES DE L'APPLICATION</h3>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                      <span className="ml-2">FAVORIS</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        className="w-5 h-5 text-gray-300"
+                      >
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <line x1="17" x2="22" y1="8" y2="13"></line>
+                        <line x1="22" x2="17" y1="8" y2="13"></line>
+                      </svg>
+                      <span className="ml-2">COMPTES BLOQUÉS</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="w-4 h-4 text-gray-400"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+
+        </div >
         <div className="px-4 pb-2">
           <div className="text-sm uppercase tracking-wider text-white pt-4">RAP - ROCK - POP</div>
           <p className="text-sm mt-1">
@@ -71,7 +486,7 @@ const Profil = () => {
             >
               S'abonner
             </button>
-            <button className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 bg-gray-700 hover:bg-gray-600 text-white text-xs py-1.5 px-3 rounded"
+            <button className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 bg-gray hover:bg-gray-600 text-white text-xs py-1.5 px-3 rounded"
               style={{
                 width: '173px',
                 borderRadius: '10px',
@@ -122,12 +537,9 @@ const Profil = () => {
               </div>
             </button>
           </div>
-          {/* <div className="flex justify-around text-xs font-semibold text-gray-400 py-2">
-            <div>Posts</div>
-            <div>Contenu</div>
-            <div>Infos</div>
-          </div> */}
         </div>
+
+        {/* changé this  from this*/}
         <div className="px-4 py-2">
           <div className="flex items-start space-x-3">
             <span className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
@@ -138,7 +550,7 @@ const Profil = () => {
               />
             </span>
             <div className="flex-1">
-              <div className="p-3 rounded-lg">
+              <div className="p-0 rounded-lg">
                 <p className="text text-white">moakajack</p>
                 <div className="text-xs text-gray-400">le 7/07/2022 à 11h20</div>
                 <img src="/assets/img/girl.jpg" alt="vidio" className="mt-2"
@@ -288,7 +700,7 @@ const Profil = () => {
               />
             </span>
             <div className="flex-1 min-w-0">
-            <p className="text text-white">TIFAYE</p>
+              <p className="text text-white">TIFAYE</p>
               <div className="text-xs text-gray-400">le 7/07/2022 à 08h56</div>
               <p className="text-sm text-gray-400 mt-1">
                 Yo l'équipe, je viens de signer pour un EP avec les gars du <span className="text-white">@368lab</span>. Le projet devrait sortir d'ici la fin
@@ -297,12 +709,16 @@ const Profil = () => {
             </div>
           </div>
         </div>
+        {/* to this  */}
+
+
         <div className="fixed bottom-4 right-4">
           <button
             style={{
               marginRight: '318px',
               width: '57px',
               height: '57px',
+
             }}
             className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:bg-primary/90 h-10 bg-[#333] p-4 rounded-full">
             <svg
@@ -323,7 +739,10 @@ const Profil = () => {
             </svg>
           </button>
         </div>
-      </div>
+
+      </div >
+
+
     </>
   );
 };
