@@ -105,27 +105,25 @@ const Preview = () => {
               >Kanya</p>
             </div>
             <div className=''>
-              <div className="">
+              <div className='flex'
+                style={{
+                  marginLeft: '217px',
+                  marginTop: '-45px',
+                }}
+              >
                 <img src="assets/img/youtube.png" alt="youtube"
                   style={{
-                    position: 'absolute',
                     width: '43px',
-                    marginLeft: '214px',
-                    marginTop: '14px',
-                    zIndex: '1',
+                    marginRight: '20px',
                   }}
                 />
-
+                <img src="assets/img/spotify.png" alt="spotify"
+                  style={{
+                    width: '39px',
+                    height: '35px',
+                  }}
+                />
               </div>
-              <img src="assets/img/spotify.png" alt="spotify"
-                style={{
-                  width: '39px',
-                  marginLeft: '273px',
-                  marginTop: '-45px',
-                  height: '35px',
-                }}
-              />
-
             </div>
 
 
@@ -162,9 +160,9 @@ const Preview = () => {
               onClick={() => setActiveButton('Notifications')}
             >
               <div className={`border-b-2 mb-1 ${activeButton === 'Notifications' ? 'border-yellow-400' : 'border-white'}`}
-               style={{
-                paddingBottom: '6px'
-              }}
+                style={{
+                  paddingBottom: '6px'
+                }}
               >
                 Notifications
               </div>
@@ -174,9 +172,9 @@ const Preview = () => {
               onClick={() => setActiveButton('Agenda')}
             >
               <div className={`border-b-2 mb-1 ${activeButton === 'Agenda' ? 'border-yellow-400' : 'border-white'}`}
-               style={{
-                paddingBottom: '6px'
-              }}
+                style={{
+                  paddingBottom: '6px'
+                }}
               >
                 Agenda
               </div>
@@ -191,16 +189,16 @@ const Preview = () => {
                 </span>
                 <div>
                   <p className="text-sm"
-                  
-                  >amoakajack <span className="text-sm" 
-                 
+
+                  >amoakajack <span className="text-sm"
+
                   >et 13 autres personnes ont soutenu votre post</span></p>
                   <span className="text-xs text-gray-400"
-                  style={{
-                    position: 'absolute',
-                    marginTop: '-36px',
-                    marginLeft: '310px',
-                  }}
+                    style={{
+                      position: 'absolute',
+                      marginTop: '-36px',
+                      marginLeft: '310px',
+                    }}
                   >1h</span>
                 </div>
               </li>
